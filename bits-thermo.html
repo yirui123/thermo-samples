@@ -1,0 +1,55 @@
+<div class="thermo-wrapper">
+
+  <div class="thermo-bit">
+  </div>
+
+
+  <div class="wg-goal" style="display: none;" data-gid="">
+    <!-- [webform_goal:progress-percent] -->
+    100
+  </div>
+</div>
+
+<style>
+.thermo-wrapper {
+  border: 2px solid #666666;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  padding: 0 0.5%;
+}
+.thermo-bit {
+  width: 9%;
+  height: 50px;
+  margin: 1% 0.5% 1% 0.5%;
+  background-color: #FCD900;
+  display: block;
+  float: left;
+}
+</style>
+
+<script
+src="https://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous"></script>
+
+<script>
+
+$(document).ready(function() {
+
+  var progress = $('.wg-goal').text();
+  var bitsNum = Math.round( progress / 10) - 1;
+  var bit = $('.thermo-bit');
+
+  function addBits() {
+    for (var i = 0; i < bitsNum; i++) {
+      setTimeout(function(){
+        bit.clone().insertAfter(bit);
+      }, 500 * i);
+    }
+  }
+
+  addBits();
+});
+
+</script>
